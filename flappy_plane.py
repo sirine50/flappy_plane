@@ -12,11 +12,11 @@ class Game(pygame.sprite.Sprite):
     self.active = False
     self.score = 0
     self.start_timer = 0
-    self.music = pygame.mixer.Sound("sounds/sounds_music.wav")
+    self.music = pygame.mixer.Sound("sounds_music.wav")
     self.music.set_volume(0.1)
     self.music.play(loops= -1)
 
-    self.background_height = pygame.image.load("images/background1.png").get_height()
+    self.background_height = pygame.image.load("background1.png").get_height()
     self.scale_factor = 700 / self.background_height
 
     self.all_sprites = pygame.sprite.Group()
@@ -29,9 +29,9 @@ class Game(pygame.sprite.Sprite):
     self.obsticale_timer = pygame.USEREVENT + 1
     pygame.time.set_timer(self.obsticale_timer, 1200)
 
-    self.font = pygame.font.Font("font/Pixeltype.ttf", 60)
-    self.ui_font = pygame.font.Font("font/Pixeltype.ttf", 40)
-    self.menu_surf = pygame.image.load("images/menu.png")
+    self.font = pygame.font.Font("Pixeltype.ttf", 60)
+    self.ui_font = pygame.font.Font("Pixeltype.ttf", 40)
+    self.menu_surf = pygame.image.load("menu.png")
     self.menu_surf = pygame.transform.scale(self.menu_surf, pygame.math.Vector2(self.menu_surf.get_size()) * (self.scale_factor / 1.4))
     self.menu_rect = self.menu_surf.get_rect(center = (240, 350))
 
@@ -63,7 +63,7 @@ class Game(pygame.sprite.Sprite):
         if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
           if self.active:
             self.plane.jump() 
-            self.jump_sound = pygame.mixer.Sound("sounds/sounds_jump.wav") 
+            self.jump_sound = pygame.mixer.Sound("sounds_jump.wav") 
             self.jump_sound.set_volume(0.1)
             self.jump_sound.play()
           else:

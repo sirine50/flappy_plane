@@ -7,7 +7,7 @@ from random import choice, randint
 class BG(pygame.sprite.Sprite):
   def __init__(self, groups, scale_factor):
     super().__init__(groups)
-    bg = pygame.image.load("images/background1.png")
+    bg = pygame.image.load("background1.png")
     scaled_bg= pygame.transform.scale(bg, (bg.get_width() * scale_factor, bg.get_height() * scale_factor))
     self.surf = pygame.surface.Surface((bg.get_width() * scale_factor * 2, 700))
     self.surf.blit(scaled_bg, (0, 0))
@@ -25,7 +25,7 @@ class Ground(pygame.sprite.Sprite):
   def __init__(self, groups, scale_factor):
     super().__init__(groups)     
     self.sprite_type = "ground"
-    ground = pygame.image.load("images/ground1.png").convert_alpha()
+    ground = pygame.image.load("ground1.png").convert_alpha()
     self.image = pygame.transform.scale(ground, pygame.math.Vector2(ground.get_size()) * scale_factor)
     self.rect = self.image.get_rect(bottomleft = (0, 700))
     self.mask = pygame.mask.from_surface(self.image)
@@ -49,7 +49,7 @@ class Plane(pygame.sprite.Sprite):
   def impurt_plane(self, scale_factore):
     self.frames = []  
     for i in range(3):
-      image = pygame.image.load(f"images/red{i}.png").convert_alpha()
+      image = pygame.image.load(f"red{i}.png").convert_alpha()
       scaled_image = pygame.transform.scale(image, pygame.math.Vector2(image.get_size()) * (scale_factore / 1.5))
       self.frames.append(scaled_image)
 
@@ -80,7 +80,7 @@ class Obsticale(pygame.sprite.Sprite):
     self.orientation = choice(["up", "down"])
     self.sprite_type = "obsticale"
 
-    image = pygame.image.load(f"images/{choice([0, 1])}.png").convert_alpha()
+    image = pygame.image.load(f"{choice([0, 1])}.png").convert_alpha()
     scaled_image = pygame.transform.scale(image, pygame.math.Vector2(image.get_size()) * scale_factor)
     self.image = scaled_image
 
